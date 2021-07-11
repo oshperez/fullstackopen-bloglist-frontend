@@ -32,3 +32,19 @@
 .app {
   padding-top: 3.5rem;
 }
+
+.blog {
+  padding: 10px;
+  margin: 10px 0;
+  border: thin solid black;
+}
+
+.button {
+  border-style: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.button__blue {
+  background-color: #1E90FF;
+}
