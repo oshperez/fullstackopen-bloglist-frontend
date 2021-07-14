@@ -5,12 +5,9 @@ const BlogForm = ({ createBlog }) => {
   const [blog, setBlog] = useState({ title: "", author: "", url: "" });
 
   // Handles new blog setup
-  const handleSetupBlog = (e, property) => {
-    setBlog((prev) => {
-      const updatedBlog = { ...prev };
-      updatedBlog[property] = e.target.value;
-      return updatedBlog;
-    });
+  const handleSetupBlog = (e) => {
+    const { name, value } = e.target;
+    setBlog((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
   const addBlog = (event) => {
@@ -25,27 +22,30 @@ const BlogForm = ({ createBlog }) => {
         title
         <input
           type="text"
+          id="title"
           value={blog.title}
           name="title"
-          onChange={(e) => handleSetupBlog(e, "title")}
+          onChange={(e) => handleSetupBlog(e)}
         />
       </div>
       <div>
         author
         <input
           type="text"
+          id="author"
           value={blog.author}
           name="author"
-          onChange={(e) => handleSetupBlog(e, "author")}
+          onChange={(e) => handleSetupBlog(e)}
         />
       </div>
       <div>
         url
         <input
           type="text"
+          id="url"
           value={blog.url}
           name="url"
-          onChange={(e) => handleSetupBlog(e, "url")}
+          onChange={(e) => handleSetupBlog(e)}
         />
       </div>
       <button type="submit">create</button>
