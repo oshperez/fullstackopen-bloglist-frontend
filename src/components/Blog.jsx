@@ -8,26 +8,34 @@ const Blog = ({ blog, addLikes, deleteBlog }) => {
   };
 
   return (
-    <div className="blog">
+    <div className="blog" data-cy="blog">
       {!showDetails ? (
         <span>
           {blog.title} by {blog.author}{" "}
-          <button onClick={toggleDetails}>view</button>
+          <button data-cy="blog-toggle" onClick={toggleDetails}>
+            view
+          </button>
         </span>
       ) : (
-        <div>
+        <div >
           <div>
             <span>
-              {blog.title} <button onClick={toggleDetails}>hide</button>
+              {blog.title}{" "}
+              <button data-cy="blog-toggle" onClick={toggleDetails}>
+                hide
+              </button>
             </span>
           </div>
           <div>
             <p>{blog.url}</p>
           </div>
           <div>
-            <span>
-              likes{blog.likes}{" "}
-              <button onClick={() => addLikes(blog.id)}>like</button>
+            <span data-cy="blog-likes">
+              likes
+              <span>{blog.likes} </span>
+              <button onClick={() => addLikes(blog.id)}>
+                like
+              </button>
             </span>
           </div>
           <div>
@@ -36,6 +44,7 @@ const Blog = ({ blog, addLikes, deleteBlog }) => {
           <button
             onClick={() => deleteBlog(blog.id)}
             className="button button__blue"
+            data-cy="blog-delete"
           >
             delete
           </button>

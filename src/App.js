@@ -162,7 +162,7 @@ const App = () => {
             </div>
             <br />
             <div>{blogForm()}</div>
-            <div>
+            <div data-cy="blog-container">
               {blogs.map((blog) => (
                 <Blog
                   key={blog.id}
